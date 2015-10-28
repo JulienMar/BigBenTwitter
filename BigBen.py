@@ -16,18 +16,9 @@ def get_tweets():
     tweets = api.user_timeline(screen_name="big_ben_clock", count="25")
     return tweets
 
-def get_retweet_counter(tweets):
-    retweets = [tweet.retweet_count for tweet in tweets]
-    return retweets
-
-def get_time(tweets):
-    time_created = [tweet.created_at for tweet in tweets]
-
 tweets = get_tweets()
-retweets = get_retweet_counter(tweets)
-times = get_time(tweets)
 
 for tweet in tweets:
     print(tweet.text)
-for retweet in retweets:
-    print(retweet)
+    print(str(tweet.created_at))
+    print(tweet.retweet_count)
